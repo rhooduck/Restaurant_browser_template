@@ -1,0 +1,25 @@
+{% include "header.html" %}
+
+<div class="album py-5 bg-body-tertiary" bis_skin_checked="1">
+    <div class="container" bis_skin_checked="1">
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3" bis_skin_checked="1">
+        {% for rest in restaurants %}
+          <div class="col" bis_skin_checked="1">
+            <div class="card shadow-sm" bis_skin_checked="1">
+              <img src="{{ rest['Img_url'] }}" class="bd-placeholder-img card-img-top" width="100%" height="225" alt="{{ rest['Rest Name'] }}">
+              <div class="card-body text-center" bis_skin_checked="1">
+                  <h5 class="card-title">{{ rest['Rest Name'] }}</h5>
+                  <p class="card-text">{{ rest['Style'] }}</p>
+                  <p class="card-text"><a href="{{ rest['Location'] }}" target="_blank">Location</a></p>
+                  <p class="card-text">Open: {{ rest['Open'] }}</p>
+                  <p class="card-text">Close: {{ rest['Close'] }}</p>
+                  <p class="card-text">Rating: {{ rest['Rating'] }}⭐</p>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+</div>
+
+{% include "footer.html" %}
