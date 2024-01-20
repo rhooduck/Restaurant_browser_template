@@ -1,0 +1,58 @@
+{% include "header.html" %}
+
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Restaurant</title>
+    {{ bootstrap.load_css() }}
+</head>
+<body>
+    <div class="container">
+        <h1>Add Restaurant</h1>
+        {% if error %}
+            <div class="alert alert-danger">
+                {{ error }}
+            </div>
+        {% endif %}
+        <form method="POST" action="{{ url_for('add_rest') }}">
+            {{ form.hidden_tag() }}
+            <div class="mb-3">
+                {{ form.restaurant.label(class="form-label") }}
+                {{ form.restaurant(class="form-control") }}
+            </div>
+            <div class="mb-3">
+                {{ form.style.label(class="form-label") }}
+                {{ form.style(class="form-control") }}
+            </div>
+            <div class="mb-3">
+                {{ form.location.label(class="form-label") }}
+                {{ form.location(class="form-control") }}
+            </div>
+            <div class="mb-3">
+                {{ form.open.label(class="form-label") }}
+                {{ form.open(class="form-control") }}
+            </div>
+            <div class="mb-3">
+                {{ form.close.label(class="form-label") }}
+                {{ form.close(class="form-control") }}
+            </div>
+            <div class="mb-3">
+                {{ form.rating.label(class="form-label") }}
+                {{ form.rating(class="form-control") }}
+            </div>
+            <div class="mb-3">
+                {{ form.image.label(class="form-label") }}
+                {{ form.image(class="form-control") }}
+            </div>
+            <div class="mb-3">
+                {{ form.submit(class="btn btn-primary") }}
+            </div>
+        </form>
+    </div>
+    {{ bootstrap.load_js() }}
+</body>
+</html>
+{% include "footer.html" %}
+
